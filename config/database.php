@@ -22,4 +22,5 @@
         echo "Succes concetion";
     }
 
+    pg_close();
 ?>
