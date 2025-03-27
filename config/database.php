@@ -5,7 +5,7 @@
     $port = "5432"; //puerto de la base de datos en postgres
     $dbname = "schoolar";
     $user = "postgres";
-    $password = "postgres";
+    $password = "unicesmag";
 
     //Create conction 
     $conn = pg_connect("
