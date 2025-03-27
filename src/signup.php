@@ -18,5 +18,5 @@
         echo "User has been created succesfully";
         } else{
             echo "Error";
-        }
+        };
 ?>
