@@ -7,16 +7,29 @@
     $email = $_POST['e_mail'];
     $password = $_POST['passw'];
 
+    //$enc_past = md5($password);
+    $enc_past = sha1($password);
+
+    $sql_validate_email = "SELECT COUNT(email) as total FROM  users WHERE  email = '$email' LIMIT 1";
+    $res = pg_query($conn, $sql_validate_email);
+
+    if($res){
+        $row = pg_fetch_assoc($res);
+        if($row['total'] > 0){
+            echo "Email already exist";
+        }
+    } else {
         //se crea el query
-    $sql = "INSERT INTO users (firstname, lastname, email, password)
-                VALUES('$fname', '$lname','$email','$password')
-    ";
+            $sql = "INSERT INTO users (firstname, lastname, email, password)
+            VALUES('$fname', '$lname','$email','$enc_past')
+            ";
+            
+            $res = pg_query($conn, $sql); //como darle f5
 
-    $res = pg_query($conn, $sql); //como darle f5
-
-    if ($res){ // es como tener res == true
-        echo "User has been created succesfully";
-        } else{
-            echo "Error";
+            if ($res){ // es como tener res == true
+                echo "User has been created succesfully";
+                    } else {
+                         echo "Error";
+                    }
         }
 ?>
