@@ -18,7 +18,7 @@
         if($row['total'] > 0){
             echo "Email already exist";
         }
-    } else {
+     else {
         //se crea el query
             $sql = "INSERT INTO users (firstname, lastname, email, password)
             VALUES('$fname', '$lname','$email','$enc_past')
@@ -32,4 +32,5 @@
                          echo "Error";
                     }
         }
+    }
 ?>
