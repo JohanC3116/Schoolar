@@ -27,7 +27,9 @@
             $res = pg_query($conn, $sql); //como darle f5
 
             if ($res){ // es como tener res == true
-                echo "User has been created succesfully";
+                //echo "User has been created succesfully";
+                echo "<script>alert('User has been created go to login')</script>";
+                header('Refresh:0; url=http://localhost/schoolar/src/signin.html');
                     } else {
                          echo "Error";
                     }

@@ -24,11 +24,11 @@
         password = $password
     ");
 
-    if(!$conn){
+    /* if(!$conn){
         die("Connection error: " . pg_last_error());
     } else {
         echo "Success conection";
-    }
+    }*/
 
     pg_close();
 ?>
