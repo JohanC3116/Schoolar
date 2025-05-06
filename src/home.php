@@ -1,7 +1,7 @@
 <?php
    session_start();
    
-   if(isset($_SESSION['user_id'])) {
+   if(!isset($_SESSION['user_id'])) {
     header('Refresh:0; url=http://localhost/schoolar/src/signin.html');
    }
 
