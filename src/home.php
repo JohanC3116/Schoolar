@@ -18,6 +18,6 @@
     <link rel="icon" type="image/png" href="src/icons/academic_icon.png"
 </head>
 <body>
-    <a href="signin.html">Logout</a>&nbsp;| &nbsp;
+    <a href="logout.php">Logout</a>&nbsp;| &nbsp;
 </body>
 </html>

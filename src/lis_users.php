@@ -18,20 +18,37 @@
             <th>Status</th>
             <th>.....   </th>
         </tr>
-        <tr>
-            <th>Johan Camilo</th>
-            <th>Calderon Alvarez</th>
-            <th>jccalderon.4697@unicesmag.edu.co</th>
-            <th>Active  </th>
-            <th>
-                <img src="icons/edit/curriculum.png" width="40">
-                <img src="icons/edit/images (1).png" width="40">
-                <img src="icons/edit/2622200.png" width="40">
-            </th>
-        </tr>
+       
         <?php
             //codigo
-           $sql = "";
+           $sql = 
+           "select 
+                firstname, 
+                lastname, 
+                email, 
+                case when status = true then 'Active' else 'No active' end as status  
+           from 
+                users;";
+
+            $res = pg_query($conn, $sql);
+            if(!$res){
+                    echo "Query error";
+                    exit;
+            }
+
+            while($row = pg_fetch_assoc($res)){
+                echo "<tr>";
+                echo "<td>". $row['firstname'] ."</td>";
+                echo "<td>". $row['lastname'] ."</td>";
+                echo "<td>". $row['email'] ."</td>";
+                echo "<td>". $row['status'] ."</td>";
+                echo "<td>";
+                echo "<a href=''><img src= 'icons/edit/curriculum.png' width='40'></a>";
+                echo "<a href=''><img src= 'icons/edit/images (1).png' width='40'></a>";
+                echo "<a href=''><img src= 'icons/edit/2622200.png' width='40'></a>";
+                echo "</td>";
+                echo "</tr>";
+            }
         ?>
     </table>
 </body>
